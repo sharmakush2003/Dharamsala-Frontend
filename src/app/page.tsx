@@ -24,7 +24,7 @@ export default function WelcomePage() {
             onClick={handleGuestEntry} 
             className={styles.primaryButton}
           >
-            Explore
+            Explore Now
           </button>
         </div>
       </div>
