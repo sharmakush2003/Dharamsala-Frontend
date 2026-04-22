@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.roomsContainer {
+  min-height: 100vh;
+  background-color: #f7f2ea;
+  background-image: 
+    url("https://www.transparenttextures.com/patterns/marble-white.png"),
+    radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.08) 0%, transparent 40%);
+  color: var(--text-main);
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 5rem;
+}
+
+.hero {
+  position: relative;
+  height: 50vh;
+  padding-top: 80px; /* Clearance for fixed Navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  letter-spacing: -0.01em;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.section {
+  max-width: 1200px;
+  margin: -1.5rem auto 0; /* Reduced from -3rem for more space */
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.categoryGroup {
+  margin-bottom: 5rem;
+}
+
+.categoryHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.categoryHeader h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--temple-maroon);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.categoryHeader h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+  background: var(--divine-gold);
+  border-radius: 2px;
+}
+
+.divider {
+  display: none;
+}
+
+.roomsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.roomCard {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+  border: 1px solid var(--sacred-border);
+  transition: var(--transition-sacred);
+  display: flex;
+  flex-direction: column;
+}
+
+.roomCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--temple-maroon);
+  z-index: 2;
+}
+
+.roomCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(128, 0, 0, 0.08);
+  border-color: var(--divine-gold);
+}
+
+.roomImageContainer {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.roomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.roomCard:hover .roomImage {
+  transform: scale(1.05);
+}
+
+.roomPrice {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--temple-maroon);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: white;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.roomContent {
+  padding: 2rem 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.roomContent h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--temple-maroon);
+}
+
+.roomFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.featureTag {
+  background: rgba(212, 175, 55, 0.08);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--saffron-kesariya);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.roomDesc {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.roomFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(128, 0, 0, 0.08);
+}
+
+.roomStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.totalBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(128, 0, 0, 0.05);
+  color: var(--temple-maroon);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(128, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.roomCount {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.bookBtn {
+  background: var(--temple-maroon);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-sacred);
+  font-size: 0.9rem;
+}
+
+.bookBtn:hover {
+  background: var(--saffron-kesariya);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 94, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 45vh;
+  }
+  
+  .heroContent {
+    padding-top: 2rem;
+  }
+
+  .roomsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .section {
+    margin-top: 0;
+    padding-top: 3rem; /* Increased from 2rem */
+  }
+
+  .categoryHeader h2 {
+    font-size: 1.8rem;
+  }
+
+  .roomFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .bookBtn {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.disclaimerSection {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(128, 0, 0, 0.1);
+}
+
+.disclaimerSection p {
+  color: #777;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.6;
+}

@@ -1,0 +1,70 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLanguage } from './LanguageProvider';
+import styles from './Footer.module.css';
+
+const Footer = () => {
+  const { t } = useLanguage();
+
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.footerGrid}>
+          <div className={styles.footerInfo}>
+            <div className={styles.footerLogoContainer}>
+              <Image 
+                src="/logo.png" 
+                alt="Jain Logo" 
+                width={60} 
+                height={60} 
+                className={styles.footerLogoImage}
+              />
+              <div className={styles.footerLogoTexts}>
+                <h3 className={styles.footerLogo}>{t('site_name')}</h3>
+                <p className={styles.footerSublogo}>{t('site_sub')}</p>
+              </div>
+            </div>
+            <p className={styles.footerAddress}>{t('footer_address')}</p>
+          </div>
+          
+          <div className={styles.footerLinks}>
+            <h4>{t('footer_links')}</h4>
+            <ul>
+              <li><Link href="/home">{t('nav_home')}</Link></li>
+              <li><Link href="/about">{t('about_title')}</Link></li>
+              <li><Link href="/history">{t('nav_history')}</Link></li>
+              <li><Link href="/trust-committee">{t('nav_trust')}</Link></li>
+              <li><Link href="/contact">{t('nav_contact')}</Link></li>
+            </ul>
+          </div>
+          
+          <div className={styles.footerContact}>
+            <h4>{t('footer_contact')}</h4>
+            <p>Phone: +91 91163 97180</p>
+            
+            <div style={{ marginTop: '2rem' }}>
+              <span className={styles.devLabel}>Developer Contact</span>
+              <p style={{ margin: 0 }}>+91 8233816674</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className={styles.footerBottom}>
+          <p className={styles.credit} style={{ opacity: 0.9, fontSize: '0.95rem' }}>
+            &copy; 2026 {t('footer_copyright')} <span style={{ margin: '0 8px', opacity: 0.4 }}>|</span> <span className={styles.names}>Under The Developers</span>
+          </p>
+          <div className={styles.credit}>
+            {t('made_with')} <span className={styles.heart}>❤️</span> {t('by')} 
+            <span className={styles.names}> Kush Sharma</span> & 
+            <span className={styles.names}> Lav Sharma</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
